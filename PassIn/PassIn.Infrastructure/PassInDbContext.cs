@@ -10,6 +10,6 @@ public class PassInDbContext : DbContext
     public DbSet<CheckIn> CheckIns {get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=\\<path>\\PassInDb.db");
+        optionsBuilder.UseSqlite("Data Source=C:\\Users\\rafae\\PassInDb.db");
     }
 }

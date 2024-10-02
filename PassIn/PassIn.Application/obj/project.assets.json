@@ -1237,39 +1237,46 @@
     ]
   },
   "packageFolders": {
-    "/home/dop/.nuget/packages/": {}
+    "C:\\Users\\rafae\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Application/PassIn.Application.csproj",
+      "projectUniqueName": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
       "projectName": "PassIn.Application",
-      "projectPath": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Application/PassIn.Application.csproj",
-      "packagesPath": "/home/dop/.nuget/packages/",
-      "outputPath": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Application/obj/",
+      "projectPath": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Application\\PassIn.Application.csproj",
+      "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/dop/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/share/.dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Communication/PassIn.Communication.csproj": {
-              "projectPath": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Communication/PassIn.Communication.csproj"
+            "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj": {
+              "projectPath": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Communication\\PassIn.Communication.csproj"
             },
-            "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Exceptions/PassIn.Exceptions.csproj": {
-              "projectPath": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Exceptions/PassIn.Exceptions.csproj"
+            "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj": {
+              "projectPath": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Exceptions\\PassIn.Exceptions.csproj"
             },
-            "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Infrastructure/PassIn.Infrastructure.csproj": {
-              "projectPath": "/home/dop/Source/repos/daniloopinheiro/PassIn/PassIn.Infrastructure/PassIn.Infrastructure.csproj"
+            "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\rafae\\OneDrive\\Documents\\Cursos\\Cursos_Dev\\NLWUnite_PassIn\\passIn\\PassIn\\PassIn.Infrastructure\\PassIn.Infrastructure.csproj"
             }
           }
         }
@@ -1278,6 +1285,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1299,7 +1311,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

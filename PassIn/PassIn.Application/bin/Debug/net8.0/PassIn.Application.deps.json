@@ -340,12 +340,18 @@
       },
       "PassIn.Communication/1.0.0": {
         "runtime": {
-          "PassIn.Communication.dll": {}
+          "PassIn.Communication.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "PassIn.Exceptions/1.0.0": {
         "runtime": {
-          "PassIn.Exceptions.dll": {}
+          "PassIn.Exceptions.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "PassIn.Infrastructure/1.0.0": {
@@ -354,7 +360,10 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.3"
         },
         "runtime": {
-          "PassIn.Infrastructure.dll": {}
+          "PassIn.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
