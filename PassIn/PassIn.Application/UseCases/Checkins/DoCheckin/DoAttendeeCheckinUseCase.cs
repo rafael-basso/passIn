@@ -15,21 +15,33 @@ public class DoAttendeeCheckinUseCase
 
     public ResponseRegisterJson Execute(Guid attendeeId)
     {
+        Validate(attendeeId);
+
+        var entity = new Infrastructure.Entities.CheckIn{
+            Attendee_Id = attendeeId,
+            Created_at = DateTime.UtcNow
+        };
+
+        _dbContext.CheckIns.Add(entity);
+        _dbContext.SaveChanges();
+
         return new ResponseRegisterJson
         {
-    
+            Id = entity.Id
         };
     }
 
     private void Validate(Guid attendeeId)
     {
         var existAttendee = _dbContext.Attendees.Any(attendee => attendee.Id == attendeeId);
+
         if (existAttendee == false)
         {
             throw new NotFoundException("The attendee with this Id was not founf.");
         }
 
         var existCheckin = _dbContext.CheckIns.Any(ch => ch.Attendee_Id == attendeeId);
+
         if (existCheckin)
         {
             throw new ConflictException("Attendee can not do checking twice in the same event.");

@@ -16,6 +16,7 @@ public class RegisterAttendeeOnEventUseCase
     {
         _dbContext = new PassInDbContext();
     }
+
     public ResponseRegisterJson Execute(Guid eventId, RequestRegisterEventJson request)
     {
         Validate(eventId, request);
