@@ -25,7 +25,7 @@ public class AttendeesController : ControllerBase
 
     [HttpGet]
     [Route("{eventId}")]
-    [ProducesResponseType(typeof(ResponseRegisterJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResponseAllAttendeesJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
     public IActionResult GetAll([FromRoute] Guid eventId)
     {
