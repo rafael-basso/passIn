@@ -26,7 +26,11 @@ public class RegisterEventUseCase
 
         return new ResponseEventJson
         {
-            Id = entity.Id
+            Id = entity.Id,
+            Title = entity.Title,
+            Details = entity.Details,
+            MaximumAttendees = entity.Maximum_Attendees,
+            AttendeesAmount = entity.Attendees.Count()
         };
     }
 
