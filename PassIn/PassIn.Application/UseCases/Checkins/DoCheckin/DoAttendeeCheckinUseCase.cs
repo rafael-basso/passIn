@@ -16,6 +16,7 @@ public class DoAttendeeCheckinUseCase
     public ResponseRegisterJson Execute(Guid attendeeId)
     {
         Validate(attendeeId);
+        string attendeeName = GetNameById(attendeeId);
 
         var entity = new Infrastructure.Entities.CheckIn{
             Attendee_Id = attendeeId,
@@ -27,7 +28,8 @@ public class DoAttendeeCheckinUseCase
 
         return new ResponseRegisterJson
         {
-            Id = entity.Id
+            Id = entity.Id,
+            Mensagem = "Check-in para " + attendeeName + " realizado com sucesso."
         };
     }
 
@@ -37,7 +39,7 @@ public class DoAttendeeCheckinUseCase
 
         if (existAttendee == false)
         {
-            throw new NotFoundException("The attendee with this Id was not founf.");
+            throw new NotFoundException("The attendee with this Id was not found.");
         }
 
         var existCheckin = _dbContext.CheckIns.Any(ch => ch.Attendee_Id == attendeeId);
@@ -47,4 +49,12 @@ public class DoAttendeeCheckinUseCase
             throw new ConflictException("Attendee can not do checking twice in the same event.");
         }
     }
+
+    private string GetNameById(Guid attendeeId)
+    {
+        var name = _dbContext.Attendees.Where(a => a.Id == attendeeId).Select(a => a.Name).FirstOrDefault();
+
+        return name ?? string.Empty;
+    }
+
 }
