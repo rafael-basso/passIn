@@ -1,0 +1,314 @@
+openapi: 3.0.1
+info:
+  title: My API
+  version: v1
+paths:
+  /api/attendees/{eventId}/register:
+    post:
+      tags:
+        - Attendees
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestRegisterEventJson'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RequestRegisterEventJson'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RequestRegisterEventJson'
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+  /api/attendees/{eventId}:
+    get:
+      tags:
+        - Attendees
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseAllAttendeesJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseAllAttendeesJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseAllAttendeesJson'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+  /api/checkin/{attendeeId}:
+    post:
+      tags:
+        - CheckIn
+      parameters:
+        - name: attendeeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseRegisterJson'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+        '409':
+          description: Conflict
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+  /api/events:
+    post:
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestEventJson'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RequestEventJson'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RequestEventJson'
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+  /api/events/{id}:
+    get:
+      tags:
+        - Events
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEventJson'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseErrorJson'
+components:
+  schemas:
+    RequestEventJson:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+        details:
+          type: string
+          nullable: true
+        maximumAttendees:
+          type: integer
+          format: int32
+      additionalProperties: false
+    RequestRegisterEventJson:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ResponseAllAttendeesJson:
+      type: object
+      properties:
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseAttendeeJson'
+          nullable: true
+      additionalProperties: false
+    ResponseAttendeeJson:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        checkedInAt:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    ResponseErrorJson:
+      type: object
+      properties:
+        message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ResponseEventJson:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          nullable: true
+        details:
+          type: string
+          nullable: true
+        maximumAttendees:
+          type: integer
+          format: int32
+        attendeesAmount:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ResponseRegisterJson:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        mensagem:
+          type: string
+          nullable: true
+      additionalProperties: false
