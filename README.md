@@ -2,7 +2,7 @@ PassIn API - Visualizar documentação:
 
 https://rafael-basso.github.io/passIn/
 
-Step-by-step para abrir project:
+Step-by-step para abrir projeto: \n
 1- clonar projeto
 2- incluir a connection string correta para o banco PassIn.db
 3- abrir arquivo PassIn.sln no VS code ou Visual Studio
