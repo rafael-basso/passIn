@@ -48,7 +48,7 @@ public class RegisterEventUseCase
 
         if (string.IsNullOrWhiteSpace(request.Details))
         {
-            throw new ErrorOnValidationException("The title is invalid.");
+            throw new ErrorOnValidationException("The 'details' is invalid.");
         }
     }
 }
