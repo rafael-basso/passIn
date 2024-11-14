@@ -18,7 +18,8 @@ public class DoAttendeeCheckinUseCase
         Validate(attendeeId);
         string attendeeName = GetNameById(attendeeId);
 
-        var entity = new Infrastructure.Entities.CheckIn{
+        var entity = new Infrastructure.Entities.CheckIn
+        {
             Attendee_Id = attendeeId,
             Created_at = DateTime.UtcNow
         };
@@ -39,14 +40,14 @@ public class DoAttendeeCheckinUseCase
 
         if (existAttendee == false)
         {
-            throw new NotFoundException("The attendee with this Id was not found.");
+            throw new NotFoundException("Participante com este ID não foi encontrado.");
         }
 
         var existCheckin = _dbContext.CheckIns.Any(ch => ch.Attendee_Id == attendeeId);
 
         if (existCheckin)
         {
-            throw new ConflictException("Attendee can not do checking twice in the same event.");
+            throw new ConflictException("Participante não pode fazer check-in no mesmo evento.");
         }
     }
 

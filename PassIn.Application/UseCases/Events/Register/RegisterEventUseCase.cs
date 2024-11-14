@@ -36,19 +36,19 @@ public class RegisterEventUseCase
 
     public void Validate(RequestEventJson request)
     {
-        if (request.MaximumAttendees <= 0)
-        {
-            throw new ErrorOnValidationException("The Maximum attendes is invalid.");
-        }
-
         if (string.IsNullOrWhiteSpace(request.Title))
         {
-            throw new ErrorOnValidationException("The title is invalid.");
+            throw new ErrorOnValidationException("O título é inválido.");
+        }
+
+        if (request.MaximumAttendees <= 0)
+        {
+            throw new ErrorOnValidationException("Número máximo de participantes inválido.");
         }
 
         if (string.IsNullOrWhiteSpace(request.Details))
         {
-            throw new ErrorOnValidationException("The 'details' is invalid.");
+            throw new ErrorOnValidationException("Detalhes é inválido.");
         }
     }
 }
